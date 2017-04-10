@@ -1,6 +1,6 @@
 ## Y_DividerItemDecoration 
 
-一个通用的RecyclerView的分割线，支持LinearLayoutManager和GridViewLayoutManager。
+一个通用的RecyclerView的分割线，支持LinearLayoutManager和GridViewLayoutManager。只要你能描述清楚每个position上下左右分割线的情况，原则上支持任意LayoutManager
 
 ![LinearLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-17.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim)  ![普通GridViewLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-30.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim) ![异形GridViewLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-39.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim)
 ## Features
@@ -66,7 +66,7 @@ recyclerView.addItemDecoration(new DividerItemDecoration(this, 6, 0xff6c6c6c));
 
 ![QQ群](http://ofc92njab.bkt.clouddn.com/temp_qrcode_share_627374460.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim)
 
-## 捐献
+## 赞赏
 
 如果Y_DividerItemDecoration节省了你大量的时间，可否给我买一袋咖啡，让我更加有动力去把它做得更好呢，:blush:，谢谢！
 
