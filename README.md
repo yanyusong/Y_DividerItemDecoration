@@ -66,7 +66,7 @@ recyclerView.addItemDecoration(new DividerItemDecoration(this, 6, 0xff6c6c6c));
 
 ![QQ群](http://ofc92njab.bkt.clouddn.com/temp_qrcode_share_627374460.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim)
 
-## 捐献
+## 赞赏
 
 如果Y_DividerItemDecoration节省了你大量的时间，可否给我买一袋咖啡，让我更加有动力去把它做得更好呢，:blush:，谢谢！
 
