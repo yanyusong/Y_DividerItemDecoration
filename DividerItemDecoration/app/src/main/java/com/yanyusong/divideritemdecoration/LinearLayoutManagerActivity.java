@@ -45,11 +45,13 @@ public class LinearLayoutManagerActivity extends AppCompatActivity {
                         holder.setText(R.id.textView, (String) itemData);
                     }
                 });
+
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new Y_MultiRecyclerAdapter(this, itemEntityList));
-
-
         recyclerView.addItemDecoration(new DividerItemDecoration(this, 6, 0xff666666));
+
+
+        recyclerView.setAdapter(new Y_MultiRecyclerAdapter(this, itemEntityList));
 
 
     }
@@ -63,14 +65,8 @@ public class LinearLayoutManagerActivity extends AppCompatActivity {
 
         @Override
         public boolean[] getItemSidesIsHaveOffsets(int itemPosition) {
-            //顺序:left, top, right, bottom
+            //顺时针顺序:left, top, right, bottom
             boolean[] isOffset = {false, false, false, true};//默认只有bottom显示分割线
-
-            if (itemPosition == 3 || itemPosition == 6 || itemPosition == 9) {
-                //当position == 3，6，9时，把left和right的分割线也显示出来
-                isOffset[0] = true;
-                isOffset[2] = true;
-            }
 
             return isOffset;
         }
