@@ -38,8 +38,8 @@ public class LinearLayoutManagerActivity extends AppCompatActivity {
         for (int i = 0; i < 25; i++) {
             items.add("item" + i);
         }
-        itemEntityList.addItems(R.layout.item_recyclerview, items)
-                .addOnBind(R.layout.item_recyclerview, new Y_OnBind() {
+        itemEntityList.addItems(R.layout.item_recyclerview_text, items)
+                .addOnBind(R.layout.item_recyclerview_text, new Y_OnBind() {
                     @Override
                     public void onBindChildViewData(GeneralRecyclerViewHolder holder, Object itemData, int position) {
                         holder.setText(R.id.textView, (String) itemData);

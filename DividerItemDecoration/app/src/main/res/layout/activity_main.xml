@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <Button
         android:id="@+id/button"
@@ -11,7 +11,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:onClick="onClick"
-        android:text="LinearLayoutManager"/>
+        android:text="LinearLayoutManager"
+        android:textAllCaps="false"/>
 
     <Button
         android:id="@+id/button2"
@@ -20,7 +21,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:onClick="onClick"
-        android:text="GridLayoutManager"/>
+        android:text="普通GridLayoutManager"
+        android:textAllCaps="false"/>
 
     <Button
         android:id="@+id/button3"
@@ -29,5 +31,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:onClick="onClick"
-        android:text="StaggeredGridLayoutManager"/>
+        android:text="异形GridLayoutManager"
+        android:textAllCaps="false"/>
 </LinearLayout>

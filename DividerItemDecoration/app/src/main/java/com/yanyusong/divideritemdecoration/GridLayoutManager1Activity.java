@@ -21,7 +21,7 @@ import java.util.List;
  * Created by mac on 2017/4/6.
  */
 
-public class GridLayoutManagerActivity extends AppCompatActivity {
+public class GridLayoutManager1Activity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
@@ -35,7 +35,7 @@ public class GridLayoutManagerActivity extends AppCompatActivity {
 
         List<String> items = new ArrayList<>();
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 22; i++) {
             items.add("item" + i);
         }
         itemEntityList.addItems(R.layout.item_recyclerview_text, items)
@@ -45,7 +45,23 @@ public class GridLayoutManagerActivity extends AppCompatActivity {
                         holder.setText(R.id.textView, (String) itemData);
                     }
                 });
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 12);
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+
+            @Override
+            public int getSpanSize(int position) {
+                if (position == 0 || position == 1) {
+                    return 6;
+                } else if (position == 6 || position == 10) {
+                    return 12;
+                } else if (position >= 7 && position <= 9) {
+                    return 4;
+                } else if (position >= 2 && position <= 5) {
+                    return 3;
+                }
+                return 3;
+            }
+        });
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(new Y_MultiRecyclerAdapter(this, itemEntityList));
 
@@ -66,19 +82,26 @@ public class GridLayoutManagerActivity extends AppCompatActivity {
         public boolean[] getItemSidesIsHaveOffsets(int itemPosition) {
             //顺序:left, top, right, bottom
             boolean[] booleans = {false, false, false, false};
-            switch (itemPosition % 3) {
-                case 0:
-                case 1:
-                    //每一行前两个显示rignt和bottom
-                    booleans[2] = true;
-                    booleans[3] = true;
-                    break;
-                case 2:
-                    //最后一个只显示bottom
-                    booleans[3] = true;
-                    break;
-                default:
-                    break;
+            if ((itemPosition >= 1 && itemPosition <= 6) || itemPosition == 9 || itemPosition == 10) {
+                booleans[3] = true;
+            } else if (itemPosition == 0 || itemPosition == 7 || itemPosition == 8) {
+                booleans[2] = true;
+                booleans[3] = true;
+            } else if (itemPosition > 10 && itemPosition < 22) {
+
+                switch ((itemPosition - 10) % 4) {
+                    case 1:
+                    case 2:
+                    case 3:
+                        booleans[2] = true;
+                        booleans[3] = true;
+                        break;
+                    case 0:
+                        booleans[3] = true;
+                        break;
+                    default:
+                        break;
+                }
             }
 
             return booleans;
