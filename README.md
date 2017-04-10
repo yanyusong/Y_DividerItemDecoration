@@ -1,6 +1,6 @@
 ## Y_DividerItemDecoration 
 
-一个通用的RecyclerView的分割线，支持LinearLayoutManager和GridViewLayoutManager。
+一个通用的RecyclerView的分割线，支持LinearLayoutManager和GridViewLayoutManager。只要你能描述清楚每个position上下左右分割线的情况，原则上支持任意LayoutManager
 
 ![LinearLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-17.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim)  ![普通GridViewLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-30.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim) ![异形GridViewLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-39.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim)
 ## Features
