@@ -1,4 +1,4 @@
-#[English](https://github.com/yanyusong/Y_DividerItemDecoration/blob/master/README.md) | [中文](https://github.com/yanyusong/Y_DividerItemDecoration/blob/master/README_CN.md)
+# [English](https://github.com/yanyusong/Y_DividerItemDecoration/blob/master/README.md) | [中文](https://github.com/yanyusong/Y_DividerItemDecoration/blob/master/README_CN.md)
 
 ## Y_DividerItemDecoration 
 
@@ -8,7 +8,7 @@ A generic RecyclerView divider that supports LinearLayoutManager and GridViewLay
 ## Features
 * LinearLayoutManager and GridViewLayoutManager are both supported
 * Customize the width and color of the divider
-* Flexibly control the divider of four directions(left、top、right、bottom) of each item to show or not
+* Flexibly control whether need show divider of the four directions(left、top、right、bottom) of each item  or not
 
 ## Download
 
