@@ -46,7 +46,7 @@ Create an object to implement the abstract class Y_DividerItemDecoration. In the
         @Override
         public boolean[] getItemSidesIsHaveOffsets(int itemPosition) {
             //clockwise order : left, top, right, bottom
-            boolean[] isOffset = {false, false, false, true};//默认只有bottom显示分割线
+            boolean[] isOffset = {false, false, false, true};//only show the divider of bottom by default
             return isOffset;
         }
     }
