@@ -2,13 +2,13 @@
 
 ## Y_DividerItemDecoration 
 
-A generic RecyclerView divider that supports LinearLayoutManager and GridViewLayoutManager. As long as you can describe the situation for  the four directions(left、top、right、bottom) of each position , in principle, support any LayoutManager.
+一个通用的RecyclerView的分割线，支持LinearLayoutManager和GridViewLayoutManager。只要你能描述清楚每个position上下左右分割线的情况，原则上支持任意LayoutManager
 
 ![LinearLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-17.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim)  ![普通GridViewLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-30.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim) ![异形GridViewLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-39.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim)
 ## Features
-* LinearLayoutManager and GridViewLayoutManager are both supported
-* Customize the width and color of the divider
-* Flexibly control the divider of four directions(left、top、right、bottom) of each item to show or not
+* LinearLayoutManager和GridViewLayoutManager通用
+* 自定义分割线的宽度和颜色
+* 灵活控制RecyclerView每个条目left、top、right、bottom的分割线的显示与否
 
 ## Download
 
@@ -33,8 +33,7 @@ compile 'com.yanyusong.y_divideritemdecoration:y_divideritemdecoration:1.0
 
 ### Step1
 
-Create an object to implement the abstract class Y_DividerItemDecoration. In the getItemSidesIsHaveOffsets (int itemPosition) method, you can decide whether need show divider for the four directions(left、top、right、bottom) of the item of position.
-
+新建一个对象实现抽象类 Y\_DividerItemDecoration ，在getItemSidesIsHaveOffsets(int itemPosition)中定义在itemPosition时条目的顺时针方向left, top, right, bottom是否需要显示分割线。
 
 ```
     class DividerItemDecoration extends Y_DividerItemDecoration {
@@ -45,7 +44,7 @@ Create an object to implement the abstract class Y_DividerItemDecoration. In the
 
         @Override
         public boolean[] getItemSidesIsHaveOffsets(int itemPosition) {
-            //clockwise order : left, top, right, bottom
+            //顺时针顺序:left, top, right, bottom
             boolean[] isOffset = {false, false, false, true};//默认只有bottom显示分割线
             return isOffset;
         }
@@ -55,12 +54,26 @@ Create an object to implement the abstract class Y_DividerItemDecoration. In the
     
 ### Step2
 
-Add divider to RecyclerView ,And pass the width and color of the divider, width unit must be dp, color format must be 0xAARRGGBB,such as 0xff6c6c6c.
+给RecyclerView添加分割线，并传入分割线的width和color，width单位是dp，color必须是包含Alpha和R、G、B的16进值的int值，例如：0xff6c6c6c
 
 ```
 recyclerView.addItemDecoration(new DividerItemDecoration(this, 6, 0xff6c6c6c));
 
 ```
+
+## 交流圈
+
+技术交流QQ群：627374460
+
+或直接扫码加群
+
+![QQ群](http://ofc92njab.bkt.clouddn.com/temp_qrcode_share_627374460.png?imageView2/0/w/300/h/800/format/jpg/q/75|imageslim)
+
+## 赞赏
+
+如果Y_DividerItemDecoration节省了你大量的时间，可否给我买一袋咖啡，让我更加有动力去把它做得更好呢，:blush:，谢谢！
+
+![支付宝](http://ofc92njab.bkt.clouddn.com/1491803495015.jpg?imageView2/0/w/300/h/800/format/jpg/q/75|imageslim)
 
 ## License
 
