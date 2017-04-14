@@ -1,4 +1,4 @@
-#[English](https://github.com/yanyusong/Y_DividerItemDecoration/blob/master/README.md) | [中文](https://github.com/yanyusong/Y_DividerItemDecoration/blob/master/README_CN.md)
+# [English](https://github.com/yanyusong/Y_DividerItemDecoration/blob/master/README.md) | 中文
 
 ## Y_DividerItemDecoration 
 
