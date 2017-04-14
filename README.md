@@ -2,11 +2,11 @@
 
 ## Y_DividerItemDecoration 
 
-A generic RecyclerView divider that supports LinearLayoutManager and GridViewLayoutManager. As long as you can describe the situation for  the four directions(left、top、right、bottom) of each position , in principle, support any LayoutManager.
+A generic RecyclerView divider that supports LinearLayoutManager and GridLayoutManager. As long as you can describe the situation for  the four directions(left、top、right、bottom) of each position , in principle, support any LayoutManager.
 
-![LinearLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-17.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim)  ![普通GridViewLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-30.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim) ![异形GridViewLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-39.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim)
+![LinearLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-17.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim)  ![普通GridViewLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-30.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim) ![异形GridLayoutManager](http://ofc92njab.bkt.clouddn.com/Screenshot_2017-04-10-14-02-39.png?imageView2/0/w/500/h/1000/format/jpg/q/75|imageslim)
 ## Features
-* LinearLayoutManager and GridViewLayoutManager are both supported
+* LinearLayoutManager and GridLayoutManager are both supported
 * Customize the width and color of the divider
 * Flexibly control whether need show divider of the four directions(left、top、right、bottom) of each item  or not
 
