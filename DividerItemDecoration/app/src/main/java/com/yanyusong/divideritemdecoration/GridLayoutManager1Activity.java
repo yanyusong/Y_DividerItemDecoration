@@ -2,7 +2,6 @@ package com.yanyusong.divideritemdecoration;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,6 +11,7 @@ import com.yanyusong.divideritemdecoration.y_recycleradapter.GeneralRecyclerView
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_ItemEntityList;
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_MultiRecyclerAdapter;
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_OnBind;
+import com.yanyusong.y_divideritemdecoration.Y_Divider;
 import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
 
 import java.util.ArrayList;
@@ -66,7 +66,7 @@ public class GridLayoutManager1Activity extends AppCompatActivity {
         recyclerView.setAdapter(new Y_MultiRecyclerAdapter(this, itemEntityList));
 
 
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, 6, 0xff666666));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this));
 
 
     }
@@ -74,37 +74,36 @@ public class GridLayoutManager1Activity extends AppCompatActivity {
 
     private class DividerItemDecoration extends Y_DividerItemDecoration {
 
-        private DividerItemDecoration(Context context, int lineWidthDp, @ColorInt int colorRGB) {
-            super(context, lineWidthDp, colorRGB);
+        private DividerItemDecoration(Context context) {
+            super(context);
         }
 
         @Override
-        public boolean[] getItemSidesIsHaveOffsets(int itemPosition) {
+        public Y_Divider getDivider(int itemPosition) {
             //顺序:left, top, right, bottom
-            boolean[] booleans = {false, false, false, false};
+            Y_Divider divider = new Y_Divider(false, false, false, false, 6, 0xff666666);
             if ((itemPosition >= 1 && itemPosition <= 6) || itemPosition == 9 || itemPosition == 10) {
-                booleans[3] = true;
+                divider.setBottom(true);
             } else if (itemPosition == 0 || itemPosition == 7 || itemPosition == 8) {
-                booleans[2] = true;
-                booleans[3] = true;
+                divider.setRight(true);
+                divider.setBottom(true);
             } else if (itemPosition > 10 && itemPosition < 22) {
 
                 switch ((itemPosition - 10) % 4) {
                     case 1:
                     case 2:
                     case 3:
-                        booleans[2] = true;
-                        booleans[3] = true;
+                        divider.setRight(true);
+                        divider.setBottom(true);
                         break;
                     case 0:
-                        booleans[3] = true;
+                        divider.setBottom(true);
                         break;
                     default:
                         break;
                 }
             }
-
-            return booleans;
+            return divider;
         }
     }
 

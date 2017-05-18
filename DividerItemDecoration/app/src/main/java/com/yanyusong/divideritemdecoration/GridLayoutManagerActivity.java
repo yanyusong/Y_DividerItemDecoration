@@ -2,7 +2,6 @@ package com.yanyusong.divideritemdecoration;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,6 +11,7 @@ import com.yanyusong.divideritemdecoration.y_recycleradapter.GeneralRecyclerView
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_ItemEntityList;
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_MultiRecyclerAdapter;
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_OnBind;
+import com.yanyusong.y_divideritemdecoration.Y_Divider;
 import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
 
 import java.util.ArrayList;
@@ -50,7 +50,7 @@ public class GridLayoutManagerActivity extends AppCompatActivity {
         recyclerView.setAdapter(new Y_MultiRecyclerAdapter(this, itemEntityList));
 
 
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, 6, 0xff666666));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this));
 
 
     }
@@ -58,30 +58,29 @@ public class GridLayoutManagerActivity extends AppCompatActivity {
 
     private class DividerItemDecoration extends Y_DividerItemDecoration {
 
-        private DividerItemDecoration(Context context, int lineWidthDp, @ColorInt int colorRGB) {
-            super(context, lineWidthDp, colorRGB);
+        private DividerItemDecoration(Context context) {
+            super(context);
         }
 
         @Override
-        public boolean[] getItemSidesIsHaveOffsets(int itemPosition) {
+        public Y_Divider getDivider(int itemPosition) {
             //顺序:left, top, right, bottom
-            boolean[] booleans = {false, false, false, false};
+            Y_Divider divider = new Y_Divider(false, false, false, false, 6, 0xff666666);
             switch (itemPosition % 3) {
                 case 0:
                 case 1:
                     //每一行前两个显示rignt和bottom
-                    booleans[2] = true;
-                    booleans[3] = true;
+                    divider.setRight(true);
+                    divider.setBottom(true);
                     break;
                 case 2:
                     //最后一个只显示bottom
-                    booleans[3] = true;
+                    divider.setBottom(true);
                     break;
                 default:
                     break;
             }
-
-            return booleans;
+            return divider;
         }
     }
 

@@ -13,97 +13,90 @@ import android.view.View;
 public abstract class Y_DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private Paint mPaint;
-    private int lineWidth;//px 分割线宽
-    /**
-     * A single color value in the form 0xAARRGGBB.
-     **/
-    private int colorRGB;
 
-    public Y_DividerItemDecoration(Context context, float lineWidthDp, @ColorInt int colorRGB) {
-        this.colorRGB = colorRGB;
-        this.lineWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, lineWidthDp, context.getResources().getDisplayMetrics());
+    private Context context;
+
+    public Y_DividerItemDecoration(Context context) {
+        this.context = context;
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaint.setColor(colorRGB);
         mPaint.setStyle(Paint.Style.FILL);
     }
-
-    public Y_DividerItemDecoration(Context context, int lineWidthDp, @ColorInt int colorRGB) {
-        this(context, (float) lineWidthDp, colorRGB);
-    }
-
 
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
         //left, top, right, bottom
         int childCount1 = parent.getChildCount();
-        //        int childCount2 = parent.getLayoutManager().getChildCount();
-        //        int childCount3 = parent.getAdapter().getItemCount();
-        //        Log.e("count", "getChildCount()=" + childCount1 + "-----getLayoutManager().getChildCount()=" + childCount2 + "----getAdapter().getItemCount()=" + childCount3);
         for (int i = 0; i < childCount1; i++) {
             View child = parent.getChildAt(i);
 
             int itemPosition = ((RecyclerView.LayoutParams) child.getLayoutParams()).getViewLayoutPosition();
 
-            boolean[] sideOffsetBooleans = getItemSidesIsHaveOffsets(itemPosition);
-            if (sideOffsetBooleans[0]) {
-                drawChildLeftVertical(child, c, parent);
+            Y_Divider divider = getDivider(itemPosition);
+            int lineWidthPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, divider.getLineWidthDp(), context.getResources().getDisplayMetrics());
+
+            if (divider.getLeft()) {
+                drawChildLeftVertical(child, c, parent, divider.getColorARGB(), lineWidthPx);
             }
-            if (sideOffsetBooleans[1]) {
-                drawChildTopHorizontal(child, c, parent);
+            if (divider.getTop()) {
+                drawChildTopHorizontal(child, c, parent, divider.getColorARGB(), lineWidthPx);
             }
-            if (sideOffsetBooleans[2]) {
-                drawChildRightVertical(child, c, parent);
+            if (divider.getRight()) {
+                drawChildRightVertical(child, c, parent, divider.getColorARGB(), lineWidthPx);
             }
-            if (sideOffsetBooleans[3]) {
-                drawChildBottomHorizontal(child, c, parent);
+            if (divider.getBottom()) {
+                drawChildBottomHorizontal(child, c, parent, divider.getColorARGB(), lineWidthPx);
             }
         }
     }
 
-    private void drawChildBottomHorizontal(View child, Canvas c, RecyclerView parent) {
+    private void drawChildBottomHorizontal(View child, Canvas c, RecyclerView parent, @ColorInt int color, int lineWidthPx) {
 
         RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
                 .getLayoutParams();
-        int left = child.getLeft() - params.leftMargin - lineWidth;
-        int right = child.getRight() + params.rightMargin + lineWidth;
+        int left = child.getLeft() - params.leftMargin - lineWidthPx;
+        int right = child.getRight() + params.rightMargin + lineWidthPx;
         int top = child.getBottom() + params.bottomMargin;
-        int bottom = top + lineWidth;
+        int bottom = top + lineWidthPx;
+        mPaint.setColor(color);
 
         c.drawRect(left, top, right, bottom, mPaint);
 
     }
 
-    private void drawChildTopHorizontal(View child, Canvas c, RecyclerView parent) {
+    private void drawChildTopHorizontal(View child, Canvas c, RecyclerView parent, @ColorInt int color, int lineWidthPx) {
         RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
                 .getLayoutParams();
-        int left = child.getLeft() - params.leftMargin - lineWidth;
-        int right = child.getRight() + params.rightMargin + lineWidth;
+        int left = child.getLeft() - params.leftMargin - lineWidthPx;
+        int right = child.getRight() + params.rightMargin + lineWidthPx;
         int bottom = child.getTop() - params.topMargin;
-        int top = bottom - lineWidth;
+        int top = bottom - lineWidthPx;
+        mPaint.setColor(color);
 
         c.drawRect(left, top, right, bottom, mPaint);
 
     }
 
-    private void drawChildLeftVertical(View child, Canvas c, RecyclerView parent) {
+    private void drawChildLeftVertical(View child, Canvas c, RecyclerView parent, @ColorInt int color, int lineWidthPx) {
         RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
                 .getLayoutParams();
-        int top = child.getTop() - params.topMargin - lineWidth;
-        int bottom = child.getBottom() + params.bottomMargin + lineWidth;
+        int top = child.getTop() - params.topMargin - lineWidthPx;
+        int bottom = child.getBottom() + params.bottomMargin + lineWidthPx;
         int right = child.getLeft() - params.leftMargin;
-        int left = right - lineWidth;
+        int left = right - lineWidthPx;
+        mPaint.setColor(color);
 
         c.drawRect(left, top, right, bottom, mPaint);
 
     }
 
-    private void drawChildRightVertical(View child, Canvas c, RecyclerView parent) {
+    private void drawChildRightVertical(View child, Canvas c, RecyclerView parent, @ColorInt int color, int lineWidthPx) {
         RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
                 .getLayoutParams();
-        int top = child.getTop() - params.topMargin - lineWidth;
-        int bottom = child.getBottom() + params.bottomMargin + lineWidth;
+        int top = child.getTop() - params.topMargin - lineWidthPx;
+        int bottom = child.getBottom() + params.bottomMargin + lineWidthPx;
         int left = child.getRight() + params.rightMargin;
-        int right = left + lineWidth;
+        int right = left + lineWidthPx;
+        mPaint.setColor(color);
 
         c.drawRect(left, top, right, bottom, mPaint);
 
@@ -116,23 +109,20 @@ public abstract class Y_DividerItemDecoration extends RecyclerView.ItemDecoratio
         //作为传递left,right,top,bottom的偏移值来用的
 
         int itemPosition = ((RecyclerView.LayoutParams) view.getLayoutParams()).getViewLayoutPosition();
-        //
-        boolean[] sideOffsetBooleans = getItemSidesIsHaveOffsets(itemPosition);
 
-        int left = sideOffsetBooleans[0] ? lineWidth : 0;
-        int top = sideOffsetBooleans[1] ? lineWidth : 0;
-        int right = sideOffsetBooleans[2] ? lineWidth : 0;
-        int bottom = sideOffsetBooleans[3] ? lineWidth : 0;
+        Y_Divider divider = getDivider(itemPosition);
+        int lineWidthPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, divider.getLineWidthDp(), context.getResources().getDisplayMetrics());
+
+        int left = divider.getLeft() ? lineWidthPx : 0;
+        int top = divider.getTop() ? lineWidthPx : 0;
+        int right = divider.getRight() ? lineWidthPx : 0;
+        int bottom = divider.getBottom() ? lineWidthPx : 0;
 
         outRect.set(left, top, right, bottom);
     }
 
-    /**
-     * 顺序:left, top, right, bottom
-     *
-     * @return boolean[4]
-     */
-    public abstract boolean[] getItemSidesIsHaveOffsets(int itemPosition);
+
+    public abstract Y_Divider getDivider(int itemPosition);
 
 
 }

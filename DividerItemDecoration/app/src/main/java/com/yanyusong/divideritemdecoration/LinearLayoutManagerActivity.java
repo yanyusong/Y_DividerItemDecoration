@@ -2,7 +2,6 @@ package com.yanyusong.divideritemdecoration;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +11,7 @@ import com.yanyusong.divideritemdecoration.y_recycleradapter.GeneralRecyclerView
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_ItemEntityList;
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_MultiRecyclerAdapter;
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_OnBind;
+import com.yanyusong.y_divideritemdecoration.Y_Divider;
 import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
 
 import java.util.ArrayList;
@@ -48,8 +48,7 @@ public class LinearLayoutManagerActivity extends AppCompatActivity {
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, 6, 0xff666666));
-
+        recyclerView.addItemDecoration(new DividerItemDecoration(this));
 
         recyclerView.setAdapter(new Y_MultiRecyclerAdapter(this, itemEntityList));
 
@@ -59,16 +58,15 @@ public class LinearLayoutManagerActivity extends AppCompatActivity {
 
     class DividerItemDecoration extends Y_DividerItemDecoration {
 
-        public DividerItemDecoration(Context context, int lineWidthDp, @ColorInt int colorRGB) {
-            super(context, lineWidthDp, colorRGB);
+        public DividerItemDecoration(Context context) {
+            super(context);
         }
 
         @Override
-        public boolean[] getItemSidesIsHaveOffsets(int itemPosition) {
+        public Y_Divider getDivider(int itemPosition) {
             //顺时针顺序:left, top, right, bottom
-            boolean[] isOffset = {false, false, false, true};//默认只有bottom显示分割线
-
-            return isOffset;
+            Y_Divider divider = new Y_Divider(false, false, false, true, 6, 0xff666666);
+            return divider;
         }
     }
 
