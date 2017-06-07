@@ -30,6 +30,9 @@
         <activity
             android:name=".GridLayoutManagerActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".GridLayoutManager2Activity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

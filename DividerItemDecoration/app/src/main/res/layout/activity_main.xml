@@ -25,6 +25,16 @@
         android:textAllCaps="false"/>
 
     <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="onClick"
+        android:text="大分割线GridLayoutManager"
+        android:textAllCaps="false"/>
+
+    <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

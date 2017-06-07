@@ -12,6 +12,7 @@ import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_ItemEntityList;
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_MultiRecyclerAdapter;
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_OnBind;
 import com.yanyusong.y_divideritemdecoration.Y_Divider;
+import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
 import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
 
 import java.util.ArrayList;
@@ -64,18 +65,22 @@ public class GridLayoutManagerActivity extends AppCompatActivity {
 
         @Override
         public Y_Divider getDivider(int itemPosition) {
+            Y_Divider divider = null;
             //顺序:left, top, right, bottom
-            Y_Divider divider = new Y_Divider(false, false, false, false, 6, 0xff666666);
             switch (itemPosition % 3) {
                 case 0:
                 case 1:
                     //每一行前两个显示rignt和bottom
-                    divider.setRight(true);
-                    divider.setBottom(true);
+                    divider = new Y_DividerBuilder()
+                            .setRightSideLine(true, 0xff666666, 6, 2, 2)
+                            .setBottomSideLine(true, 0xff666666, 6, 2, 2)
+                            .create();
                     break;
                 case 2:
                     //最后一个只显示bottom
-                    divider.setBottom(true);
+                    divider = new Y_DividerBuilder()
+                            .setBottomSideLine(true, 0xff666666, 6, 2, 2)
+                            .create();
                     break;
                 default:
                     break;

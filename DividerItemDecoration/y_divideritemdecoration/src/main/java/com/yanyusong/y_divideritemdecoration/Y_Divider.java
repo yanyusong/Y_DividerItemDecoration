@@ -1,80 +1,56 @@
 package com.yanyusong.y_divideritemdecoration;
 
-import android.support.annotation.ColorInt;
-
 /**
  * Created by mac on 2017/5/17.
  */
 
 public class Y_Divider {
 
-    public boolean left = false;
-    public boolean top = false;
-    public boolean right = false;
-    public boolean bottom = false;
-    /**
-     * A single color value in the form 0xAARRGGBB.
-     **/
-    public int colorARGB;
-    /**
-     * 单位dp
-     */
-    public float lineWidthDp;
+    public Y_SideLine leftSideLine;
+    public Y_SideLine topSideLine;
+    public Y_SideLine rightSideLine;
+    public Y_SideLine bottomSideLine;
 
-    public Y_Divider(boolean left, boolean top, boolean right, boolean bottom, float lineWidthDp, @ColorInt int colorARGB) {
-        this.left = left;
-        this.top = top;
-        this.right = right;
-        this.bottom = bottom;
-        this.colorARGB = colorARGB;
-        this.lineWidthDp = lineWidthDp;
+
+    public Y_Divider(Y_SideLine leftSideLine, Y_SideLine topSideLine, Y_SideLine rightSideLine, Y_SideLine bottomSideLine) {
+        this.leftSideLine = leftSideLine;
+        this.topSideLine = topSideLine;
+        this.rightSideLine = rightSideLine;
+        this.bottomSideLine = bottomSideLine;
     }
 
-    public boolean getLeft() {
-        return left;
+    public Y_SideLine getLeftSideLine() {
+        return leftSideLine;
     }
 
-    public void setLeft(boolean left) {
-        this.left = left;
+    public void setLeftSideLine(Y_SideLine leftSideLine) {
+        this.leftSideLine = leftSideLine;
     }
 
-    public boolean getTop() {
-        return top;
+    public Y_SideLine getTopSideLine() {
+        return topSideLine;
     }
 
-    public void setTop(boolean top) {
-        this.top = top;
+    public void setTopSideLine(Y_SideLine topSideLine) {
+        this.topSideLine = topSideLine;
     }
 
-    public boolean getRight() {
-        return right;
+    public Y_SideLine getRightSideLine() {
+        return rightSideLine;
     }
 
-    public void setRight(boolean right) {
-        this.right = right;
+    public void setRightSideLine(Y_SideLine rightSideLine) {
+        this.rightSideLine = rightSideLine;
     }
 
-    public boolean getBottom() {
-        return bottom;
+    public Y_SideLine getBottomSideLine() {
+        return bottomSideLine;
     }
 
-    public void setBottom(boolean bottom) {
-        this.bottom = bottom;
-    }
-
-    public int getColorARGB() {
-        return colorARGB;
-    }
-
-    public void setColorARGB(@ColorInt int colorARGB) {
-        this.colorARGB = colorARGB;
-    }
-
-    public float getLineWidthDp() {
-        return lineWidthDp;
-    }
-
-    public void setLineWidthDp(float lineWidthDp) {
-        this.lineWidthDp = lineWidthDp;
+    public void setBottomSideLine(Y_SideLine bottomSideLine) {
+        this.bottomSideLine = bottomSideLine;
     }
 }
+
+
+

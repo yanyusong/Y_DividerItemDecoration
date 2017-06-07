@@ -12,6 +12,7 @@ import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_ItemEntityList;
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_MultiRecyclerAdapter;
 import com.yanyusong.divideritemdecoration.y_recycleradapter.Y_OnBind;
 import com.yanyusong.y_divideritemdecoration.Y_Divider;
+import com.yanyusong.y_divideritemdecoration.Y_DividerBuilder;
 import com.yanyusong.y_divideritemdecoration.Y_DividerItemDecoration;
 
 import java.util.ArrayList;
@@ -81,23 +82,31 @@ public class GridLayoutManager1Activity extends AppCompatActivity {
         @Override
         public Y_Divider getDivider(int itemPosition) {
             //顺序:left, top, right, bottom
-            Y_Divider divider = new Y_Divider(false, false, false, false, 6, 0xff666666);
+            Y_Divider divider = null;
             if ((itemPosition >= 1 && itemPosition <= 6) || itemPosition == 9 || itemPosition == 10) {
-                divider.setBottom(true);
+                divider = new Y_DividerBuilder()
+                        .setBottomSideLine(true, 0xff666666, 6, 2, 2)
+                        .create();
             } else if (itemPosition == 0 || itemPosition == 7 || itemPosition == 8) {
-                divider.setRight(true);
-                divider.setBottom(true);
+                divider = new Y_DividerBuilder()
+                        .setRightSideLine(true, 0xff666666, 6, 2, 2)
+                        .setBottomSideLine(true, 0xff666666, 6, 2, 2)
+                        .create();
             } else if (itemPosition > 10 && itemPosition < 22) {
 
                 switch ((itemPosition - 10) % 4) {
                     case 1:
                     case 2:
                     case 3:
-                        divider.setRight(true);
-                        divider.setBottom(true);
+                        divider = new Y_DividerBuilder()
+                                .setRightSideLine(true, 0xff666666, 6, 2, 2)
+                                .setBottomSideLine(true, 0xff666666, 6, 2, 2)
+                                .create();
                         break;
                     case 0:
-                        divider.setBottom(true);
+                        divider = new Y_DividerBuilder()
+                                .setBottomSideLine(true, 0xff666666, 6, 2, 2)
+                                .create();
                         break;
                     default:
                         break;
