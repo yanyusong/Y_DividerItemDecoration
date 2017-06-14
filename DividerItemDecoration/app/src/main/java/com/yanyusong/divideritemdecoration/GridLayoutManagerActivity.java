@@ -66,7 +66,6 @@ public class GridLayoutManagerActivity extends AppCompatActivity {
         @Override
         public Y_Divider getDivider(int itemPosition) {
             Y_Divider divider = null;
-            //顺序:left, top, right, bottom
             switch (itemPosition % 3) {
                 case 0:
                 case 1:

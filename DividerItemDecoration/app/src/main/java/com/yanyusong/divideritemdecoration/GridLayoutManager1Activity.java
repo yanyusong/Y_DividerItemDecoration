@@ -81,7 +81,6 @@ public class GridLayoutManager1Activity extends AppCompatActivity {
 
         @Override
         public Y_Divider getDivider(int itemPosition) {
-            //顺序:left, top, right, bottom
             Y_Divider divider = null;
             if ((itemPosition >= 1 && itemPosition <= 6) || itemPosition == 9 || itemPosition == 10) {
                 divider = new Y_DividerBuilder()

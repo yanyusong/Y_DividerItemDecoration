@@ -64,7 +64,6 @@ public class LinearLayoutManagerActivity extends AppCompatActivity {
 
         @Override
         public Y_Divider getDivider(int itemPosition) {
-            //顺时针顺序:left, top, right, bottom
             Y_Divider divider = null;
             switch (itemPosition) {
                 case 0:
