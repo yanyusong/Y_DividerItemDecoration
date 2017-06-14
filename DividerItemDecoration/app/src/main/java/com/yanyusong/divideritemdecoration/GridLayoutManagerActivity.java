@@ -70,16 +70,16 @@ public class GridLayoutManagerActivity extends AppCompatActivity {
             switch (itemPosition % 3) {
                 case 0:
                 case 1:
-                    //每一行前两个显示rignt和bottom
+                    //每一行第一个和第二个显示rignt和bottom
                     divider = new Y_DividerBuilder()
-                            .setRightSideLine(true, 0xff666666, 6, 2, 2)
-                            .setBottomSideLine(true, 0xff666666, 6, 2, 2)
+                            .setRightSideLine(true, 0xff666666, 6, 0, 0)
+                            .setBottomSideLine(true, 0xff666666, 6, 0, 0)
                             .create();
                     break;
                 case 2:
                     //最后一个只显示bottom
                     divider = new Y_DividerBuilder()
-                            .setBottomSideLine(true, 0xff666666, 6, 2, 2)
+                            .setBottomSideLine(true, 0xff666666, 6, 0, 0)
                             .create();
                     break;
                 default:

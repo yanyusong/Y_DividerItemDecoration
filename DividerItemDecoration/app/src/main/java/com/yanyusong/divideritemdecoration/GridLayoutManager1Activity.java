@@ -85,12 +85,12 @@ public class GridLayoutManager1Activity extends AppCompatActivity {
             Y_Divider divider = null;
             if ((itemPosition >= 1 && itemPosition <= 6) || itemPosition == 9 || itemPosition == 10) {
                 divider = new Y_DividerBuilder()
-                        .setBottomSideLine(true, 0xff666666, 6, 2, 2)
+                        .setBottomSideLine(true, 0xff666666, 6, 0, 0)
                         .create();
             } else if (itemPosition == 0 || itemPosition == 7 || itemPosition == 8) {
                 divider = new Y_DividerBuilder()
-                        .setRightSideLine(true, 0xff666666, 6, 2, 2)
-                        .setBottomSideLine(true, 0xff666666, 6, 2, 2)
+                        .setRightSideLine(true, 0xff666666, 6, 0, 0)
+                        .setBottomSideLine(true, 0xff666666, 6, 0, 0)
                         .create();
             } else if (itemPosition > 10 && itemPosition < 22) {
 
@@ -99,13 +99,13 @@ public class GridLayoutManager1Activity extends AppCompatActivity {
                     case 2:
                     case 3:
                         divider = new Y_DividerBuilder()
-                                .setRightSideLine(true, 0xff666666, 6, 2, 2)
-                                .setBottomSideLine(true, 0xff666666, 6, 2, 2)
+                                .setRightSideLine(true, 0xff666666, 6, 0, 0)
+                                .setBottomSideLine(true, 0xff666666, 6, 0, 0)
                                 .create();
                         break;
                     case 0:
                         divider = new Y_DividerBuilder()
-                                .setBottomSideLine(true, 0xff666666, 6, 2, 2)
+                                .setBottomSideLine(true, 0xff666666, 6, 0, 0)
                                 .create();
                         break;
                     default:

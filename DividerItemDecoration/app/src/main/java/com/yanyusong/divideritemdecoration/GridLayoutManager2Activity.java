@@ -57,6 +57,10 @@ public class GridLayoutManager2Activity extends AppCompatActivity {
     }
 
 
+    /**
+     * 大分割线的解决方案是，将中间分割线的宽度平均分配到左右两个分割线上，
+     * 这样item的宽度就一样了
+     */
     private class DividerItemDecoration extends Y_DividerItemDecoration {
 
         private DividerItemDecoration(Context context) {
@@ -69,14 +73,14 @@ public class GridLayoutManager2Activity extends AppCompatActivity {
             Y_Divider divider = null;
             switch (itemPosition % 2) {
                 case 0:
-                    //每一行前两个显示rignt和bottom
+                    //每一行第一个显示rignt和bottom
                     divider = new Y_DividerBuilder()
                             .setRightSideLine(true, 0xff666666, 10, 0, 0)
                             .setBottomSideLine(true, 0xff666666, 20, 0, 0)
                             .create();
                     break;
                 case 1:
-                    //最后一个只显示bottom
+                    //第二个显示Left和bottom
                     divider = new Y_DividerBuilder()
                             .setLeftSideLine(true, 0xff666666, 10, 0, 0)
                             .setBottomSideLine(true, 0xff666666, 20, 0, 0)

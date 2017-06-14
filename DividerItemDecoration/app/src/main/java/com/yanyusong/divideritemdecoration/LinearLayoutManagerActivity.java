@@ -95,19 +95,19 @@ public class LinearLayoutManagerActivity extends AppCompatActivity {
                     break;
                 case 5:
                     divider = new Y_DividerBuilder()
-                            .setBottomSideLine(false, 0xffFF4081, 6, 0, 0)
+                            .setBottomSideLine(true, 0xffFF4081, 6, 0, 0)
                             .create();
                     break;
                 case 6:
                     divider = new Y_DividerBuilder()
                             .setLeftSideLine(true, 0xffFF4081, 3, 0, 0)
-                            .setRightSideLine(true, 0xff666666, 8, 0, 0)
+                            .setRightSideLine(true, 0xffFF4081, 8, 0, 0)
                             .setBottomSideLine(true, 0xffFF4081, 6, 0, 0)
                             .create();
                     break;
                 default:
                     divider = new Y_DividerBuilder()
-                            .setBottomSideLine(true, 0xffFF4081, 6, 0, 0)
+                            .setBottomSideLine(true, 0xff666666, 6, 0, 0)
                             .create();
                     break;
             }
