@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.annotation.ColorInt;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -186,6 +187,11 @@ public abstract class Y_DividerItemDecoration extends RecyclerView.ItemDecoratio
         int itemPosition = ((RecyclerView.LayoutParams) view.getLayoutParams()).getViewLayoutPosition();
 
         Y_Divider divider = getDivider(itemPosition);
+
+        if (divider == null) {
+            divider = new Y_DividerBuilder().create();
+        }
+
         int left = divider.getLeftSideLine().isHave() ? Dp2Px.convert(context, divider.getLeftSideLine().getWidthDp()) : 0;
         int top = divider.getTopSideLine().isHave() ? Dp2Px.convert(context, divider.getTopSideLine().getWidthDp()) : 0;
         int right = divider.getRightSideLine().isHave() ? Dp2Px.convert(context, divider.getRightSideLine().getWidthDp()) : 0;
@@ -195,7 +201,7 @@ public abstract class Y_DividerItemDecoration extends RecyclerView.ItemDecoratio
     }
 
 
-    public abstract Y_Divider getDivider(int itemPosition);
+    public abstract @Nullable Y_Divider getDivider(int itemPosition);
 
 
 }

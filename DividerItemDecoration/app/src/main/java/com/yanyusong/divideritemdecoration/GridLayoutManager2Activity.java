@@ -50,12 +50,8 @@ public class GridLayoutManager2Activity extends AppCompatActivity {
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(new Y_MultiRecyclerAdapter(this, itemEntityList));
 
-
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
-
-
     }
-
 
     /**
      * 大分割线的解决方案是，将中间分割线的宽度平均分配到左右两个分割线上，
@@ -69,7 +65,9 @@ public class GridLayoutManager2Activity extends AppCompatActivity {
 
         @Override
         public Y_Divider getDivider(int itemPosition) {
+
             Y_Divider divider = null;
+
             switch (itemPosition % 2) {
                 case 0:
                     //每一行第一个显示rignt和bottom
