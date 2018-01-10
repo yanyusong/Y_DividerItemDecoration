@@ -68,11 +68,6 @@ compile 'com.yanyusong.y_divideritemdecoration:y_divideritemdecoration:2.0'
 ```
  recyclerView.addItemDecoration(new DividerItemDecoration(this));
 ```
-## 赞赏
-
-如果Y_DividerItemDecoration节省了你大量的时间，可否给我买一袋咖啡，让我更加有动力去把它做得更好呢，:blush:，谢谢！
-
-![支付宝](https://user-gold-cdn.xitu.io/2017/6/14/48365047622b886792252d664702de31)
 
 ## License
 
