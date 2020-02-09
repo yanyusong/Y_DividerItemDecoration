@@ -1,6 +1,6 @@
 package com.yanyusong.y_divideritemdecoration;
 
-import android.support.annotation.ColorInt;
+import androidx.annotation.ColorInt;
 
 /**
  * Created by mac on 2017/5/17.
